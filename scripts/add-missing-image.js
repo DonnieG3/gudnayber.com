@@ -45,17 +45,15 @@ if (!fs.existsSync(IMAGES_DIR)) {
 
 // Generate article image prompt from topic
 function generateImagePrompt(title, subject, category) {
-  // Keep the prompt below FLUX.2 klein's 800-character API limit so it can
-  // reliably serve as a fallback when the primary model rejects a request.
-  const topic = `${title}: ${subject}`
-    .replace(/cross-partisan/gi, 'bridge-building')
-    .replace(/political/gi, 'civic')
-    .replace(/opponents?/gi, 'neighbors with different views')
-    .replace(/partisan/gi, 'community')
-    .slice(0, 260);
+  const scenes = {
+    unity: 'Neighbors listening in a civic circle, then working side by side on a community garden',
+    dignity: 'Caring neighbors offering practical help while treating every person as an equal',
+    division: 'Neighbors listening calmly across a table and discovering a shared community goal'
+  };
+  const scene = scenes[category] || 'Neighbors listening and completing a community project together';
 
   return {
-    prompt: `Editorial illustration for ${topic}. ${category} theme. Show compassionate people cooperating across differences through specific human gestures. Strict two-color duotone only: brick red #B44334 and deep navy #071B4C. Engraved linework, bold screen-print shapes, subtle paper grain; hopeful and unsentimental. Respect dignity and agency. No other colors, gradients, photorealism, logos, text, watermark, stereotypes, staged scenes, or exploitative imagery.`,
+    prompt: `${scene}. Editorial screen-print illustration using only brick red #B44334 and deep navy #071B4C. Engraved linework, bold shapes, subtle paper grain, warm human gestures, hopeful mood, no text.`,
     negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, stereotype, staged scene, exploitative imagery`
   };
 }
