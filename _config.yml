@@ -3,6 +3,7 @@ title: "Gudnayber"
 description: "Love is a choice. Reflections on faith, human dignity, and how we show up for our neighbors."
 url: "https://gudnayber.com"
 baseurl: ""
+google_analytics: "G-NNKXK4322B"
 
 # Build settings
 markdown: kramdown
