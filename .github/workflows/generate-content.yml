@@ -1,0 +1,54 @@
+name: Generate Gudnayber Profile
+
+on:
+  # Enable a schedule after adding NVIDIA_API_KEY to repository secrets.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0  # Fetch all history for proper git operations
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate JSON files
+        run: npm run validate
+
+      - name: Generate new article
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: npm run generate
+
+      - name: Fix formatting inconsistencies
+        run: |
+          npm run fix-formatting
+          node scripts/fix-horizontal-rules.js
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code _guides/ generated-topics.json assets/images/guides/ || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push new article
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add _guides/ generated-topics.json assets/images/guides/
+          git commit -m "Add sourced Gudnayber profile with image [automated]"
+          git push

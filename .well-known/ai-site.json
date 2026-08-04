@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "name": "decent.charity",
+  "description": "Sourced profiles of charitable organizations and practical ways to give time, talents, treasure, or needed goods.",
+  "version": "1.0",
+  "url": "https://decent.charity",
+  "content_types": [
+    "charity_profiles",
+    "giving_guides",
+    "organization_research"
+  ],
+  "categories": [
+    "hunger",
+    "support_services",
+    "shelter",
+    "clothing"
+  ],
+  "resources": {
+    "guides": {
+      "url": "/api/guides.json",
+      "description": "Sourced charity profiles with organization metadata",
+      "format": "json",
+      "updated": "realtime"
+    },
+    "topics": {
+      "url": "/api/topics.json",
+      "description": "Profiles organized by topic tags",
+      "format": "json",
+      "updated": "realtime"
+    },
+    "index": {
+      "url": "/index.json",
+      "description": "Site structure and category counts",
+      "format": "json",
+      "updated": "realtime"
+    },
+    "feed": {
+      "url": "/feed.xml",
+      "description": "Latest charity profiles",
+      "format": "xml",
+      "updated": "realtime"
+    }
+  },
+  "capabilities": {
+    "search": true,
+    "filtering": [
+      "category",
+      "organization",
+      "topic",
+      "tags"
+    ],
+    "structured_data": true,
+    "json_ld": true
+  },
+  "technical": {
+    "generator": "Jekyll",
+    "hosting": "GitHub Pages",
+    "source": "Static site"
+  }
+}

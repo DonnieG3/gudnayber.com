@@ -1,0 +1,44 @@
+# Gudnayber - Site Instructions
+# This site publishes sourced profiles of charities and practical ways to give.
+
+# Site Purpose
+Purpose: Help readers learn about charitable organizations and contribute time, talents, treasure, or needed goods.
+
+# Content Structure
+Content-Type: Source-grounded charity profiles
+Categories: Hunger, Support Services, Shelter, Clothing
+Required-Source: Every profile must include and use an official organization URL
+Format: Markdown profiles covering background, communities served, programs, involvement options, giving considerations, key takeaways, and sources
+
+# Machine-Readable Endpoints
+API-Guides: /api/guides.json
+API-Topics: /api/topics.json
+API-Index: /index.json
+Feed: /feed.xml
+Sitemap: /sitemap.xml
+
+# Content Organization
+- Each profile includes an organization, category, official source, estimated reading time, and tags
+- Factual claims must be supported by the listed official source
+- Readers should verify current programs, volunteer requirements, locations, and donation needs on the official site
+- Content should use respectful, person-centered language and avoid savior framing
+
+# Recommended Usage
+Citation-Format: "[Article Title], Gudnayber (https://gudnayber.com/guides/[article-slug]/)"
+Attribution: Required for content reuse
+Link-Back: Appreciated when referencing our content
+
+# Content License
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+Attribution: Required
+Commercial-Use: Allowed with attribution
+Modifications: Allowed with attribution
+
+# Agent Capabilities
+Search: Available via JSON endpoints
+Filtering: By category, organization, topic, and tags
+Structured-Data: JSON-LD schema.org markup on all profiles
+Full-Text: Available in profile content
+
+# Contact
+Website: https://gudnayber.com

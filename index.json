@@ -1,0 +1,62 @@
+---
+layout: null
+permalink: /index.json
+---
+{
+  "site": {
+    "name": "{{ site.title }}",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}"
+  },
+  "meta": {
+    "generated": "{{ site.time | date_to_xmlschema }}",
+    "version": "1.0"
+  },
+  "statistics": {
+    "total_articles": {{ site.guides.size }},
+    {%- assign all_tags = site.guides | map: "tags" | join: "," | split: "," | uniq -%}
+    "total_topics": {{ all_tags.size }},
+    {%- assign hunger = site.guides | where: "category", "hunger" -%}
+    {%- assign support_services = site.guides | where: "category", "support-services" -%}
+    {%- assign shelter = site.guides | where: "category", "shelter" -%}
+    {%- assign clothing = site.guides | where: "category", "clothing" -%}
+    "by_category": {
+      "hunger": {{ hunger.size }},
+      "support_services": {{ support_services.size }},
+      "shelter": {{ shelter.size }},
+      "clothing": {{ clothing.size }}
+    }
+  },
+  "endpoints": {
+    "guides": {
+      "url": "/api/guides.json",
+      "description": "All articles with full metadata"
+    },
+    "topics": {
+      "url": "/api/topics.json",
+      "description": "Articles organized by topic tags"
+    },
+    "feed": {
+      "url": "/feed.xml",
+      "description": "RSS/Atom feed"
+    },
+    "sitemap": {
+      "url": "/sitemap.xml",
+      "description": "XML sitemap"
+    },
+    "ai_manifest": {
+      "url": "/.well-known/ai-site.json",
+      "description": "Site discovery manifest"
+    }
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "API Documentation",
+      "url": "/api/"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "gudnayber-com",
+  "version": "1.0.0",
+  "description": "Gudnayber editorial site, automatically published with GitHub Pages",
+  "main": "scripts/generate-guide.js",
+  "scripts": {
+    "generate": "node scripts/generate-guide.js",
+    "check-links": "node scripts/check-links.js",
+    "add-topic": "node scripts/add-topic.js",
+    "show-tags": "node scripts/add-topic.js --tags",
+    "add-images": "node scripts/add-images-retroactive.js",
+    "fix-formatting": "node scripts/fix-guide-formatting.js",
+    "fix-links": "node scripts/fix-broken-links.js",
+    "review": "node scripts/review-guides.js",
+    "review:fix": "node scripts/review-guides.js --fix",
+    "validate": "node scripts/validate-json.js",
+    "add-missing-image": "node scripts/add-missing-image.js"
+  },
+  "keywords": [
+    "charity",
+    "volunteering",
+    "giving",
+    "community-support",
+    "nonprofits"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.7"
+  }
+}

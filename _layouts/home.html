@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<div class="hero">
+    <div class="container hero-inner">
+        <h1 class="hero-title">love is a choice.</h1>
+        <p class="hero-description">Reflections on faith, human dignity, and how we show up for our neighbors.</p>
+    </div>
+</div>
+
+<div class="filters container">
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search articles..." aria-label="Search articles">
+    </div>
+    <div class="filter-buttons">
+        <button class="filter-btn" data-category="hunger">Hunger</button>
+        <button class="filter-btn" data-category="support-services">Support Services</button>
+        <button class="filter-btn" data-category="shelter">Shelter</button>
+        <button class="filter-btn" data-category="clothing">Clothing</button>
+        <button class="filter-btn active" data-category="all">See All</button>
+    </div>
+</div>
+
+<div class="guides-grid container" id="guides-grid">
+    {% assign sorted_guides = site.guides | sort: 'date' | reverse %}
+    {% for guide in sorted_guides %}
+        {% include guide-card.html guide=guide %}
+    {% endfor %}
+</div>
+
+<div class="no-results" id="no-results" style="display: none;">
+    <div class="container">
+        <p>No stories found in this category.</p>
+    </div>
+</div>
+
+{{ content }}

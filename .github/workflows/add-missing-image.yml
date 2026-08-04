@@ -1,0 +1,49 @@
+name: Add Missing Article Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      guide_file:
+        description: Guide markdown filename in _guides
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  add-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Add missing image
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: npm run add-missing-image -- "${{ inputs.guide_file }}"
+
+      - name: Check for changes
+        id: git-check
+        run: git diff --exit-code _guides/ assets/images/guides/ || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push image
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add _guides/ assets/images/guides/
+          git commit -m "Add missing article image [automated]"
+          git push
