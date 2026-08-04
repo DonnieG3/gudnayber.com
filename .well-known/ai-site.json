@@ -1,30 +1,30 @@
 {
   "schema_version": "1.0",
-  "name": "decent.charity",
-  "description": "Sourced profiles of charitable organizations and practical ways to give time, talents, treasure, or needed goods.",
+  "name": "Gudnayber",
+  "description": "Source-grounded reflections on choosing to love others through dignity, across division, and in real-world acts of unity.",
   "version": "1.0",
-  "url": "https://decent.charity",
+  "url": "https://gudnayber.com",
   "content_types": [
-    "charity_profiles",
-    "giving_guides",
-    "organization_research"
+    "moral_reflections",
+    "human_dignity_stories",
+    "division_and_reconciliation",
+    "real_world_unity"
   ],
   "categories": [
-    "hunger",
-    "support_services",
-    "shelter",
-    "clothing"
+    "dignity",
+    "division",
+    "unity"
   ],
   "resources": {
     "guides": {
       "url": "/api/guides.json",
-      "description": "Sourced charity profiles with organization metadata",
+      "description": "Source-grounded Gudnayber articles with subject metadata",
       "format": "json",
       "updated": "realtime"
     },
     "topics": {
       "url": "/api/topics.json",
-      "description": "Profiles organized by topic tags",
+      "description": "Articles organized by topic tags",
       "format": "json",
       "updated": "realtime"
     },
@@ -36,19 +36,14 @@
     },
     "feed": {
       "url": "/feed.xml",
-      "description": "Latest charity profiles",
+      "description": "Latest Gudnayber articles",
       "format": "xml",
       "updated": "realtime"
     }
   },
   "capabilities": {
     "search": true,
-    "filtering": [
-      "category",
-      "organization",
-      "topic",
-      "tags"
-    ],
+    "filtering": ["category", "subject", "topic", "tags"],
     "structured_data": true,
     "json_ld": true
   },

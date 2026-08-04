@@ -22,7 +22,7 @@ permalink: /api/topics.json
           "slug": "{{ guide.url | replace: '/guides/', '' | replace: '/', '' }}",
           "url": "{{ site.url }}{{ guide.url }}",
           "category": "{{ guide.category }}",
-          "organization": {{ guide.organization | jsonify }},
+          "subject": {{ guide.subject | jsonify }},
           "source": {{ guide.source | jsonify }},
           "estimated_time": "{{ guide.estimated_time }}"
         }{%- unless forloop.last -%},{%- endunless -%}

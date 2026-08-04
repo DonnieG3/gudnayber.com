@@ -1,24 +1,30 @@
-# Content Strategy for decent.charity
+# Gudnayber Content Strategy
 
-The site publishes source-grounded profiles of hunger-relief organizations, support services, shelter organizations, and clothing-assistance organizations so readers can understand their work and find practical ways to help.
+Gudnayber begins with one conviction: **love is a choice**. The site publishes source-grounded reflections that help readers recognize another person’s dignity and choose neighbor-love in practical, courageous ways.
 
 ## Editorial Posture
 
-- Welcoming to seekers, returners, and lifelong believers.
-- Broadly Judeo-Christian, centered on loving God and loving neighbor.
-- Scripture-based, using NIV references and brief excerpts where useful.
-- Pastoral and practical, without partisan or denominational scorekeeping.
-- No emojis in generated article content.
+- Rooted in a welcoming Christian moral imagination and accessible to readers of every faith and no faith.
+- Human, reflective, practical, and honest about suffering, injustice, disagreement, accountability, and repair.
+- Person-centered: never reduce someone to a diagnosis, hardship, demographic, ideology, or label.
+- Curious rather than accusatory; no partisan or denominational scorekeeping.
+- Faith must never be used to shame, coerce, exclude, or claim moral superiority.
+- No savior language, stereotypes, romanticized unity, false equivalence, or emojis.
 
-## Core Content Pillars
+## Editorial Pillars
 
-1. Finding a church family
-2. Finding or returning to faith
-3. Discerning purpose and calling
-4. Recognizing healthy congregations
-5. Loving God and neighbor
-6. Scripture, prayer, service, hospitality, reconciliation, and mercy
+### Dignity
+
+Love shown to people who are sick, poor, stigmatized, isolated, or ostracized. Dignity articles preserve agency, resist pity and paternalism, and ask readers to see a person rather than a condition or need.
+
+### Division
+
+Political, religious, racial, and economic differences that can turn neighbors into strangers. Division articles name injustice and disagreement honestly while refusing contempt, caricature, partisan endorsement, and dehumanization.
+
+### Unity
+
+Verified real-world examples of people from different backgrounds, beliefs, identities, or economic circumstances working together for the common good. Unity articles do not erase meaningful differences or pretend cooperation is effortless.
 
 ## Article Shape
 
-Each article should include Scripture foundation, daily-life application, reflection questions, a simple weekly practice, a short original prayer, key takeaways, and further reading.
+Every article includes The Human Story, Where Love Is Needed, What Gets in the Way, Choosing Love in Practice, A Real-World Witness, Questions for Reflection, a specific Neighborly Practice, Key Takeaways, and Sources.

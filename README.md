@@ -1,6 +1,6 @@
 # Gudnayber
 
-A Jekyll-powered home for Gudnayber.com, adapted from the `KJW3LLC/decent.charity` site architecture. The visual system follows the original Gudnayber WordPress site: warm gray surfaces, editorial serif headlines, clean sans-serif body copy, and the Gudnayber red-and-blue heart mark.
+A Jekyll-powered home for Gudnayber.com. The site publishes source-grounded reflections on choosing love through Dignity, Division, and Unity. Its visual system follows the original Gudnayber WordPress site: warm gray surfaces, editorial serif headlines, clean sans-serif body copy, and the Gudnayber red-and-blue heart mark.
 
 ## Local Development
 
@@ -16,11 +16,13 @@ Generated articles use the NVIDIA API through `scripts/generate-guide.js` and dr
 
 The generator is configured to:
 
-- Write from a welcoming Judeo-Christian perspective
-- Use NIV as the Scripture reference basis
-- Prefer Scripture references and short excerpts over long quotations
+- Center the deliberate choice to love other people
+- Write from a welcoming Christian moral imagination while respecting readers of every faith and no faith
+- Tailor each article to the Dignity, Division, or Unity editorial pillar
+- Ground factual claims and real-world examples in the assigned primary source
+- Preserve human agency and avoid pity, stereotypes, partisan endorsement, false equivalence, and romanticized unity
 - Avoid emojis in article content
-- Include reflection questions, weekly practice, prayer, and takeaways
+- Include reflection questions, a specific neighborly practice, and key takeaways
 
 Set `NVIDIA_API_KEY` before running:
 

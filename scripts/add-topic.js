@@ -21,7 +21,7 @@ function question(prompt) {
 
 // Validate category
 function isValidCategory(category) {
-  return ['hunger', 'support-services', 'shelter', 'clothing'].includes(category.toLowerCase());
+  return ['dignity', 'division', 'unity'].includes(category.toLowerCase());
 }
 
 // Main function
@@ -37,16 +37,16 @@ async function addTopic() {
       process.exit(1);
     }
 
-    const organization = await question('Organization name: ');
-    if (!organization.trim()) {
-      console.log('❌ Organization cannot be empty');
+    const subject = await question('Article subject: ');
+    if (!subject.trim()) {
+      console.log('❌ Subject cannot be empty');
       process.exit(1);
     }
 
     // Get category
     let category;
     while (true) {
-      category = await question('Category (hunger/support-services/shelter/clothing): ');
+      category = await question('Category (dignity/division/unity): ');
       if (isValidCategory(category)) {
         category = category.toLowerCase();
         break;
@@ -54,7 +54,13 @@ async function addTopic() {
       console.log('❌ Invalid category');
     }
 
-    const source = await question('Official source URL (https://...): ');
+    const angle = await question('Loving-others angle: ');
+    if (!angle.trim()) {
+      console.log('❌ Article angle cannot be empty');
+      process.exit(1);
+    }
+
+    const source = await question('Primary source URL (https://...): ');
     try {
       const parsedSource = new URL(source);
       if (parsedSource.protocol !== 'https:') throw new Error('HTTPS required');
@@ -78,8 +84,9 @@ async function addTopic() {
     // Create topic object
     const newTopic = {
       title: title.trim(),
-      organization: organization.trim(),
+      subject: subject.trim(),
       category,
+      angle: angle.trim(),
       source: source.trim(),
       tags
     };
@@ -155,7 +162,7 @@ Options:
   --help, -h    Show this help message
 
 Interactive mode (default):
-  Prompts for title, organization, category, official source, and tags
+  Prompts for title, subject, category, loving-others angle, primary source, and tags
 `);
   process.exit(0);
 }

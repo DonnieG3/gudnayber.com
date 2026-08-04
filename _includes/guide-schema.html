@@ -2,7 +2,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TechArticle",
+  "@type": "Article",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | jsonify }},
   {%- if page.image -%}
@@ -42,8 +42,8 @@
   },
   {%- endif -%}
   "about": {
-    "@type": "Organization",
-    "name": {{ page.organization | jsonify }},
+    "@type": "Thing",
+    "name": {{ page.subject | jsonify }},
     "sameAs": {{ page.source | jsonify }}
   }
 }

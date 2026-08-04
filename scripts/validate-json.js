@@ -26,18 +26,17 @@ JSON_FILES.forEach(file => {
 
     if (file === 'topics.json') {
       const allowedCategories = new Set([
-        'hunger',
-        'support-services',
-        'shelter',
-        'clothing'
+        'dignity',
+        'division',
+        'unity'
       ]);
 
       if (!Array.isArray(data) || data.length === 0) {
-        throw new Error('topics.json must contain at least one organization topic');
+        throw new Error('topics.json must contain at least one editorial topic');
       }
 
       data.forEach((topic, index) => {
-        const requiredStrings = ['title', 'organization', 'category', 'source'];
+        const requiredStrings = ['title', 'subject', 'category', 'angle', 'source'];
         requiredStrings.forEach(field => {
           if (typeof topic[field] !== 'string' || !topic[field].trim()) {
             throw new Error(`topics.json item ${index + 1} is missing ${field}`);

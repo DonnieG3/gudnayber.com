@@ -11,24 +11,26 @@ const GUIDES_DIR = path.join(__dirname, '..', '_guides');
 const REVIEW_REPORT_FILE = path.join(__dirname, '..', 'guide-review-report.json');
 
 // Review criteria
-const REVIEW_PROMPT = `You are a content quality reviewer for Gudnayber. Review this charity profile against its required official source.
+const REVIEW_PROMPT = `You are a content quality reviewer for Gudnayber. Review this source-grounded reflection on choosing to love other people.
 
 REVIEW CRITERIA:
 
 1. COMPLETENESS (Score 1-10)
-   - Does the article have all expected sections? (Introduction, Organization Background, Communities Served, Programs and Services, How to Get Involved, Before You Give, Key Takeaways, Sources)
+   - Does the article have all expected sections? (Introduction, The Human Story, Where Love Is Needed, What Gets in the Way, Choosing Love in Practice, A Real-World Witness, Questions for Reflection, A Neighborly Practice, Key Takeaways, Sources)
    - Are any sections incomplete or cut off mid-sentence?
-   - Is the content complete enough to help a reader understand the organization and take a verified next step?
+   - Is the content complete enough to help a reader understand the issue and choose a concrete act of neighbor-love?
 
-2. DIGNITY AND USEFULNESS (Score 1-10)
-   - Is the writing clear, respectful, practical, and free of savior language?
-   - Does it distinguish national information from local services?
-   - Does it explain ways to contribute time, talents, treasure, or needed goods?
+2. LOVE, DIGNITY, AND USEFULNESS (Score 1-10)
+   - Does the article center the choice to love others without sentimentality, shame, coercion, or moral superiority?
+   - Is the writing clear, respectful, practical, person-centered, and free of savior language?
+   - For dignity articles, does it honor people who are sick, poor, stigmatized, isolated, or ostracized while preserving agency?
+   - For division articles, does it address political, religious, racial, or economic differences honestly without stereotypes, partisan endorsement, or false equivalence?
+   - For unity articles, does it use a verified real-world example of people from different backgrounds working together without erasing real differences?
+   - Does it conclude with a specific, achievable neighborly practice?
 
 3. SOURCE ACCURACY (Score 1-10)
    - Is every factual claim supported by the supplied official source content?
    - Is the required source linked prominently and included in the Sources section?
-   - Are changing details presented cautiously with instructions to verify on the official site?
 
 4. SPECIFIC ISSUES
    - List any specific problems found, including missing sections, weak Scripture handling, tone issues, unsupported claims, or formatting problems.
@@ -111,13 +113,13 @@ async function reviewGuide(guideData, filename, retryCount = 0) {
 
 GUIDE TO REVIEW:
 Title: ${guideData.frontMatter.title || 'Unknown'}
-Organization: ${guideData.frontMatter.organization || 'Unknown'}
+Subject: ${guideData.frontMatter.subject || 'Unknown'}
 Category: ${guideData.frontMatter.category || 'Unknown'}
 Required Source: ${guideData.frontMatter.source}
 Date: ${guideData.frontMatter.date || 'Unknown'}
 Estimated Time: ${guideData.frontMatter.estimated_time || 'Unknown'}
 
-OFFICIAL SOURCE CONTENT:
+PRIMARY SOURCE CONTENT:
 ${sourceContent}
 
 ARTICLE CONTENT:
@@ -266,11 +268,11 @@ async function fixGuide(guideData, review, filename, filePath) {
   console.log(`  🔧 Fixing issues...`);
 
   const sourceContent = await fetchSourceContent(guideData.frontMatter.source);
-  const fixPrompt = `You are a content editor for Gudnayber. You previously reviewed this charity profile and found issues. Now fix them.
+  const fixPrompt = `You are a content editor for Gudnayber. You previously reviewed this reflection on choosing to love others and found issues. Now fix them.
 
 ORIGINAL ARTICLE:
 Title: ${guideData.frontMatter.title || 'Unknown'}
-Organization: ${guideData.frontMatter.organization || 'Unknown'}
+Subject: ${guideData.frontMatter.subject || 'Unknown'}
 Category: ${guideData.frontMatter.category || 'Unknown'}
 Required Source: ${guideData.frontMatter.source}
 
@@ -296,10 +298,10 @@ ${review.recommendations.map(r => `- ${r}`).join('\n')}
 
 INSTRUCTIONS:
 1. Fix ALL issues identified in the review
-2. Keep the expected structure (Introduction, Organization Background, Communities Served, Programs and Services, How to Get Involved, Before You Give, Key Takeaways, Sources)
-3. Maintain a respectful, practical tone and preserve the dignity of communities served
-4. Remove or qualify every factual claim not supported by the official source content
-5. Include the required official source link and remove invented links or details
+2. Keep the expected structure (Introduction, The Human Story, Where Love Is Needed, What Gets in the Way, Choosing Love in Practice, A Real-World Witness, Questions for Reflection, A Neighborly Practice, Key Takeaways, Sources)
+3. Maintain a warm, honest, practical, person-centered tone; preserve agency; and center the deliberate choice to love others
+4. Remove or qualify every factual claim not supported by the primary source content
+5. Include the required primary source link and remove invented links or details
 6. Return ONLY the updated markdown content (no frontmatter, no explanations)
 
 Provide the complete, improved article content:`;

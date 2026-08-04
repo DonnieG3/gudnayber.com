@@ -1,7 +1,9 @@
-name: Generate Gudnayber Profile
+name: Generate Gudnayber Article
 
 on:
-  # Enable a schedule after adding NVIDIA_API_KEY to repository secrets.
+  schedule:
+    # Publish one source-grounded Gudnayber article daily at 6:00 AM UTC.
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -50,5 +52,5 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add _guides/ generated-topics.json assets/images/guides/
-          git commit -m "Add sourced Gudnayber profile with image [automated]"
+          git commit -m "Add source-grounded Gudnayber article [automated]"
           git push

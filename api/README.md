@@ -1,13 +1,13 @@
 # Gudnayber API Documentation
 
-The static JSON API provides programmatic access to sourced charity profiles, categories, topics, feeds, and site metadata.
+The static JSON API provides programmatic access to Gudnayber’s source-grounded articles, categories, topics, feeds, and site metadata.
 
 ## Endpoints
 
-### Charity Profiles
+### Articles
 **Endpoint:** `/api/guides.json`
 
-Returns every published profile with its title, organization, category, official source, tags, estimated reading time, image, and content length.
+Returns every published article with its title, subject, editorial category, primary source, tags, estimated reading time, image, and content length.
 
 ### Topics
 **Endpoint:** `/api/topics.json`
@@ -26,7 +26,7 @@ Standard RSS/Atom feed of latest articles.
 
 ## Content Notes
 
-Profiles are generated from `topics.json`. Every topic requires an official organization source, and the generator fetches that source before writing. Content covers the organization’s background, communities served, programs, and ways to contribute time, talents, treasure, or needed goods.
+Articles are generated from `topics.json`. Every topic belongs to Dignity, Division, or Unity; supplies a primary source; and defines a specific loving-others angle. The generator fetches that source before writing and ends each article with an achievable neighborly practice.
 
 ## Attribution
 

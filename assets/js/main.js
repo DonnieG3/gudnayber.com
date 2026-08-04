@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentCategory = 'all';
     let currentSearchTerm = '';
 
-    // Filter by charity category
+    // Filter by editorial category
     if (filterButtons) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {

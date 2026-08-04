@@ -19,7 +19,7 @@ permalink: /api/guides.json
       "url": "{{ site.url }}{{ guide.url }}",
       "description": {{ guide.description | jsonify }},
       "category": "{{ guide.category }}",
-      "organization": {{ guide.organization | jsonify }},
+      "subject": {{ guide.subject | jsonify }},
       "source": {{ guide.source | jsonify }},
       "tags": {{ guide.tags | jsonify }},
       "estimated_time": "{{ guide.estimated_time }}",

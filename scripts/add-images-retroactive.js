@@ -51,24 +51,24 @@ function parseFrontMatter(content) {
 
   const frontMatterText = frontMatterMatch[1];
   const titleMatch = frontMatterText.match(/title:\s*"(.+?)"/);
-  const organizationMatch = frontMatterText.match(/organization:\s*"(.+?)"/);
+  const subjectMatch = frontMatterText.match(/subject:\s*"(.+?)"/);
   const categoryMatch = frontMatterText.match(/category:\s*(.+)/);
   const imageMatch = frontMatterText.match(/image:\s*"(.+?)"/);
 
   return {
     fullFrontMatter: frontMatterMatch[0],
     title: titleMatch ? titleMatch[1] : null,
-    organization: organizationMatch ? organizationMatch[1] : null,
+    subject: subjectMatch ? subjectMatch[1] : null,
     category: categoryMatch ? categoryMatch[1].trim().replace(/^["']|["']$/g, '') : null,
     hasImage: !!imageMatch
   };
 }
 
 // Generate article image prompt from topic
-function generateImagePrompt(title, organization, category) {
+function generateImagePrompt(title, subject, category) {
   return {
-    prompt: `Editorial city street photograph for an article titled ${title} about ${organization}, categorized as ${category.replace(/-/g, ' ')}. Documentary-style urban streetscape connected to community support and neighborhood life. Render the entire photo in rich black and white except for one single prominent element in one primary color (red, blue, or yellow). Natural light, candid realism, strong composition, respectful and hopeful mood. Do not depict or imply a specific facility, client, volunteer, or branded property unless verified. No logos, no organization branding, no readable signs, no readable text, no watermark, no staged poverty imagery.`,
-    negative_prompt: `multiple colored elements, full color, sepia, logos, organization branding, readable signs, readable text, typography, watermark, exploitative imagery, staged hardship, identifiable vulnerable people`
+    prompt: `Editorial documentary photograph for a Gudnayber article titled "${title}" about ${subject}, in the ${category} category. Show an authentic moment of human connection, dignity, dialogue, reconciliation, or shared work that expresses the choice to love a neighbor. Rich black-and-white image with one restrained Gudnayber brick-red or royal-blue accent. Natural light, candid realism, respectful distance, hopeful but unsentimental mood. No logos, readable signs, readable text, watermark, staged poverty, partisan symbols, religious caricatures, or exploitative depictions of vulnerable people.`,
+    negative_prompt: `multiple colored elements, full color, sepia, logos, readable signs, readable text, typography, watermark, exploitative imagery, staged hardship, partisan propaganda, stereotypes, identifiable vulnerable people`
   };
 }
 
@@ -134,7 +134,7 @@ async function tryGenerateWithModel(promptData, modelUrl, modelName, steps, maxR
 }
 
 // Generate and save image using NVIDIA's FLUX models with fallback
-async function generateAndSaveImage(title, organization, category) {
+async function generateAndSaveImage(title, subject, category) {
   const slug = title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
@@ -154,7 +154,7 @@ async function generateAndSaveImage(title, organization, category) {
 
   console.log(`  Generating AI image with NVIDIA FLUX...`);
 
-  const prompt = generateImagePrompt(title, organization, category);
+  const prompt = generateImagePrompt(title, subject, category);
   let imageBase64 = null;
   let modelUsed = null;
 
@@ -243,8 +243,8 @@ async function processGuide(filename) {
     return { processed: false, reason: 'invalid_front_matter' };
   }
 
-  if (!frontMatter.title || !frontMatter.organization || !frontMatter.category) {
-    console.log(`⚠️  ${filename}: Missing title, organization, or category, skipping`);
+  if (!frontMatter.title || !frontMatter.subject || !frontMatter.category) {
+    console.log(`⚠️  ${filename}: Missing title, subject, or category, skipping`);
     return { processed: false, reason: 'no_title' };
   }
 
@@ -258,7 +258,7 @@ async function processGuide(filename) {
   // Generate image
   const imageData = await generateAndSaveImage(
     frontMatter.title,
-    frontMatter.organization,
+    frontMatter.subject,
     frontMatter.category
   );
   if (!imageData) {

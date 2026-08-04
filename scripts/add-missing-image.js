@@ -44,10 +44,10 @@ if (!fs.existsSync(IMAGES_DIR)) {
 }
 
 // Generate article image prompt from topic
-function generateImagePrompt(title, organization, category) {
+function generateImagePrompt(title, subject, category) {
   return {
-    prompt: `Editorial city street photograph for an article titled ${title} about ${organization}, categorized as ${category.replace(/-/g, ' ')}. Documentary-style urban streetscape connected to community support and neighborhood life. Render the entire photo in rich black and white except for one single prominent element in one primary color (red, blue, or yellow). Natural light, candid realism, strong composition, respectful and hopeful mood. Do not depict or imply a specific facility, client, volunteer, or branded property unless verified. No logos, no organization branding, no readable signs, no readable text, no watermark, no staged poverty imagery.`,
-    negative_prompt: `multiple colored elements, full color, sepia, logos, organization branding, readable signs, readable text, typography, watermark, exploitative imagery, staged hardship, identifiable vulnerable people`
+    prompt: `Editorial documentary photograph for a Gudnayber article titled "${title}" about ${subject}, in the ${category} category. Show an authentic moment of human connection, dignity, dialogue, reconciliation, or shared work that expresses the choice to love a neighbor. Rich black-and-white image with one restrained Gudnayber brick-red or royal-blue accent. Natural light, candid realism, respectful distance, hopeful but unsentimental mood. No logos, readable signs, readable text, watermark, staged poverty, partisan symbols, religious caricatures, or exploitative depictions of vulnerable people.`,
+    negative_prompt: `multiple colored elements, full color, sepia, logos, readable signs, readable text, typography, watermark, exploitative imagery, staged hardship, partisan propaganda, stereotypes, identifiable vulnerable people`
   };
 }
 
@@ -113,7 +113,7 @@ async function tryGenerateWithModel(promptData, modelUrl, modelName, steps, maxR
 }
 
 // Generate and save image using NVIDIA's FLUX models with fallback
-async function generateAndSaveImage(title, organization, category) {
+async function generateAndSaveImage(title, subject, category) {
   const slug = title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
@@ -123,7 +123,7 @@ async function generateAndSaveImage(title, organization, category) {
 
   console.log(`Generating article image for: ${title}`);
 
-  const prompt = generateImagePrompt(title, organization, category);
+  const prompt = generateImagePrompt(title, subject, category);
   let imageBase64 = null;
   let modelUsed = null;
 
@@ -231,24 +231,24 @@ async function main() {
 
   const frontMatter = frontMatterMatch[1];
   const titleMatch = frontMatter.match(/title:\s*"(.+?)"/);
-  const organizationMatch = frontMatter.match(/organization:\s*"(.+?)"/);
+  const subjectMatch = frontMatter.match(/subject:\s*"(.+?)"/);
   const categoryMatch = frontMatter.match(/category:\s*(.+)/);
 
-  if (!titleMatch || !organizationMatch || !categoryMatch) {
-    console.error('Could not find title, organization, or category');
+  if (!titleMatch || !subjectMatch || !categoryMatch) {
+    console.error('Could not find title, subject, or category');
     process.exit(1);
   }
 
   const title = titleMatch[1];
-  const organization = organizationMatch[1];
+  const subject = subjectMatch[1];
   const category = categoryMatch[1].trim().replace(/^["']|["']$/g, '');
 
   console.log(`Title: ${title}`);
-  console.log(`Organization: ${organization}`);
+  console.log(`Subject: ${subject}`);
   console.log(`Category: ${category}\n`);
 
   // Generate image
-  const imageData = await generateAndSaveImage(title, organization, category);
+  const imageData = await generateAndSaveImage(title, subject, category);
 
   if (!imageData) {
     console.error('Failed to generate image');

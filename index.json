@@ -16,15 +16,13 @@ permalink: /index.json
     "total_articles": {{ site.guides.size }},
     {%- assign all_tags = site.guides | map: "tags" | join: "," | split: "," | uniq -%}
     "total_topics": {{ all_tags.size }},
-    {%- assign hunger = site.guides | where: "category", "hunger" -%}
-    {%- assign support_services = site.guides | where: "category", "support-services" -%}
-    {%- assign shelter = site.guides | where: "category", "shelter" -%}
-    {%- assign clothing = site.guides | where: "category", "clothing" -%}
+    {%- assign dignity = site.guides | where: "category", "dignity" -%}
+    {%- assign division = site.guides | where: "category", "division" -%}
+    {%- assign unity = site.guides | where: "category", "unity" -%}
     "by_category": {
-      "hunger": {{ hunger.size }},
-      "support_services": {{ support_services.size }},
-      "shelter": {{ shelter.size }},
-      "clothing": {{ clothing.size }}
+      "dignity": {{ dignity.size }},
+      "division": {{ division.size }},
+      "unity": {{ unity.size }}
     }
   },
   "endpoints": {

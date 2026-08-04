@@ -1,121 +1,74 @@
 [
   {
-    "title": "Feeding America: A Nationwide Network Working to End Hunger",
-    "organization": "Feeding America",
-    "category": "hunger",
-    "source": "https://www.feedingamerica.org/about-us",
-    "tags": ["hunger-relief", "food-banks", "national-network"]
+    "title": "The Dignity of Being Seen: Loving People Who Are Sick",
+    "subject": "Compassionate presence and whole-person care for people living with serious illness",
+    "category": "dignity",
+    "angle": "Explore how love protects dignity by seeing a person rather than a diagnosis, listening without trying to fix everything, and remaining present through suffering.",
+    "source": "https://www.who.int/news-room/fact-sheets/detail/palliative-care",
+    "tags": ["illness", "compassion", "presence", "whole-person-care"]
   },
   {
-    "title": "City Harvest: Rescuing Food for New York City Neighbors",
-    "organization": "City Harvest",
-    "category": "hunger",
-    "source": "https://www.cityharvest.org/our-story/",
-    "tags": ["food-rescue", "new-york-city", "hunger-relief"]
+    "title": "More Than a Need: Loving Our Neighbors in Poverty",
+    "subject": "Human dignity, poverty, and solidarity",
+    "category": "dignity",
+    "angle": "Challenge language and actions that reduce people to their needs, and show how solidarity, listening, and shared agency express love without paternalism.",
+    "source": "https://www.ohchr.org/en/special-procedures/sr-poverty/guiding-principles-extreme-poverty-and-human-rights",
+    "tags": ["poverty", "solidarity", "human-rights", "agency"]
   },
   {
-    "title": "Food Bank For New York City: Food and Support Across Five Boroughs",
-    "organization": "Food Bank For New York City",
-    "category": "hunger",
-    "source": "https://www.foodbanknyc.org/who-we-are/",
-    "tags": ["food-security", "new-york-city", "community-support"]
+    "title": "Welcome at the Margins: Loving People Society Ostracizes",
+    "subject": "Belonging, social exclusion, and the dignity of ostracized people",
+    "category": "dignity",
+    "angle": "Examine the everyday choices that create belonging for people who are stigmatized, isolated, or pushed outside community life.",
+    "source": "https://www.un.org/development/desa/socialperspectiveondevelopment/issues/social-integration.html",
+    "tags": ["belonging", "social-exclusion", "hospitality", "marginalization"]
   },
   {
-    "title": "211: Connecting People with Essential Local Resources",
-    "organization": "211",
-    "category": "support-services",
-    "source": "https://211.org/about-us",
-    "tags": ["resource-navigation", "crisis-support", "local-services"]
+    "title": "When Politics Makes Strangers of Neighbors",
+    "subject": "Political polarization and the discipline of loving across disagreement",
+    "category": "division",
+    "angle": "Explore how political identity can turn disagreement into contempt, and offer practices for truthful, principled conversation that refuses dehumanization.",
+    "source": "https://braverangels.org/what-we-do/",
+    "tags": ["politics", "polarization", "dialogue", "civic-friendship"]
   },
   {
-    "title": "Volunteers of America: Housing, Health and Human Services",
-    "organization": "Volunteers of America",
-    "category": "support-services",
-    "source": "https://www.voa.org/our-services/",
-    "tags": ["human-services", "health", "community-support"]
+    "title": "Faith Without Fear: Loving Across Religious Differences",
+    "subject": "Religious difference, pluralism, and cooperation",
+    "category": "division",
+    "angle": "Show how people can remain rooted in their own convictions while building trust, protecting religious dignity, and working alongside neighbors of other faiths or no faith.",
+    "source": "https://www.interfaithamerica.org/about/",
+    "tags": ["religion", "pluralism", "interfaith", "conviction"]
   },
   {
-    "title": "Meals on Wheels America: Nutrition and Connection for Older Adults",
-    "organization": "Meals on Wheels America",
-    "category": "hunger",
-    "source": "https://www.mealsonwheelsamerica.org/about/",
-    "tags": ["senior-support", "meal-delivery", "social-connection"]
+    "title": "Beyond the Lines We Inherit: Race, Memory, and Neighborly Love",
+    "subject": "Racial division, honest memory, and nonviolent reconciliation",
+    "category": "division",
+    "angle": "Consider why love requires truth about racial injustice, respect for lived experience, and nonviolent commitment to repair rather than denial or blame.",
+    "source": "https://thekingcenter.org/about-tkc/the-king-philosophy/",
+    "tags": ["race", "reconciliation", "nonviolence", "truth"]
   },
   {
-    "title": "Habitat for Humanity: Building Access to Safe, Affordable Homes",
-    "organization": "Habitat for Humanity",
-    "category": "shelter",
-    "source": "https://www.habitat.org/about",
-    "tags": ["affordable-housing", "homebuilding", "community-development"]
+    "title": "Building Together: The Carter Work Project and the Practice of Unity",
+    "subject": "People from different backgrounds building homes together through the Carter Work Project",
+    "category": "unity",
+    "angle": "Use a documented community-building effort to show how shared work can turn concern into relationship and unite people across social and economic differences.",
+    "source": "https://www.habitat.org/volunteer/build-events/carter-work-project",
+    "tags": ["housing", "volunteering", "shared-work", "community"]
   },
   {
-    "title": "Covenant House: Shelter and Support for Young People",
-    "organization": "Covenant House",
-    "category": "shelter",
-    "source": "https://www.covenanthouse.org/about-us",
-    "tags": ["youth-homelessness", "emergency-shelter", "long-term-support"]
+    "title": "Cooperation Across Faiths: Interfaith America in Practice",
+    "subject": "People of different religious and nonreligious backgrounds cooperating for the common good",
+    "category": "unity",
+    "angle": "Center real examples of bridge-building and shared action while respecting the distinct beliefs and identities participants bring.",
+    "source": "https://www.interfaithamerica.org/",
+    "tags": ["interfaith", "cooperation", "common-good", "bridge-building"]
   },
   {
-    "title": "Family Promise: Preventing and Ending Family Homelessness",
-    "organization": "Family Promise",
-    "category": "shelter",
-    "source": "https://familypromise.org/what-we-do/",
-    "tags": ["family-homelessness", "shelter", "housing-stability"]
-  },
-  {
-    "title": "Mercy Housing: Affordable Homes with Resident Support",
-    "organization": "Mercy Housing",
-    "category": "shelter",
-    "source": "https://www.mercyhousing.org/about/",
-    "tags": ["affordable-housing", "resident-services", "housing-stability"]
-  },
-  {
-    "title": "Dress for Success: Clothing and Career Support for Women",
-    "organization": "Dress for Success",
-    "category": "clothing",
-    "source": "https://dressforsuccess.org/about-us/what-we-do/",
-    "tags": ["workplace-attire", "career-development", "economic-mobility"]
-  },
-  {
-    "title": "One Warm Coat: Sharing Warmth Through Community Coat Drives",
-    "organization": "One Warm Coat",
-    "category": "clothing",
-    "source": "https://www.onewarmcoat.org/about-us/",
-    "tags": ["coat-drives", "winter-clothing", "volunteerism"]
-  },
-  {
-    "title": "Soles4Souls: Turning Shoes and Clothing Into Opportunity",
-    "organization": "Soles4Souls",
-    "category": "clothing",
-    "source": "https://soles4souls.org/about-us/",
-    "tags": ["footwear", "clothing-donations", "economic-opportunity"]
-  },
-  {
-    "title": "Operation Warm: New Coats and Shoes for Children",
-    "organization": "Operation Warm",
-    "category": "clothing",
-    "source": "https://www.operationwarm.org/who-we-are/mission.html",
-    "tags": ["children", "winter-coats", "shoes"]
-  },
-  {
-    "title": "The Wardrobe: Addressing Clothing Insecurity for Work and Life",
-    "organization": "The Wardrobe",
-    "category": "clothing",
-    "source": "https://careerwardrobe.org/about/",
-    "tags": ["clothing-insecurity", "employment", "life-transitions"]
-  },
-  {
-    "title": "The Undies Project: Meeting a Basic Need With Dignity",
-    "organization": "The Undies Project",
-    "category": "clothing",
-    "source": "https://www.theundiesproject.org/our-story",
-    "tags": ["underwear", "basic-needs", "dignity"]
-  },
-  {
-    "title": "Cradles to Crayons: Everyday Essentials for Children",
-    "organization": "Cradles to Crayons",
-    "category": "clothing",
-    "source": "https://www.cradlestocrayons.org/what-we-do/our-history/",
-    "tags": ["children", "clothing-insecurity", "everyday-essentials"]
+    "title": "From Political Opponents to Civic Partners",
+    "subject": "Cross-partisan citizens building relationships and serving their communities together",
+    "category": "unity",
+    "angle": "Focus on real-world practices that help people move from political suspicion to shared civic responsibility without erasing meaningful disagreement.",
+    "source": "https://braverangels.org/what-we-do/",
+    "tags": ["cross-partisan", "civic-life", "relationship", "common-ground"]
   }
 ]
