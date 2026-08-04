@@ -45,8 +45,12 @@ if (!fs.existsSync(IMAGES_DIR)) {
 
 // Generate article image prompt from topic
 function generateImagePrompt(title, subject, category) {
+  // Keep the prompt below FLUX.2 klein's 800-character API limit so it can
+  // reliably serve as a fallback when the primary model rejects a request.
+  const topic = `${title}: ${subject}`.slice(0, 260);
+
   return {
-    prompt: `Create a sophisticated editorial illustration for the Gudnayber article "${title}" about ${subject}, in the ${category} category. Visualize the specific human idea, relationship, tension, or real-world cooperation at the heart of this topic—not a generic city scene. Use a strict two-color duotone palette only: Gudnayber brick red #B44334 and deep navy blue #071B4C. Use expressive engraved line work, bold screen-printed shapes, subtle paper grain, and compassionate human gestures. Respect human dignity and agency. Hopeful but unsentimental, editorial rather than promotional. No third color, no black, no white background, no gradients, no photorealism, no logos, no symbols unrelated to the topic, no readable text, no typography, no watermark, no partisan propaganda, no religious caricatures, no stereotypes, no staged poverty, and no exploitative depiction of vulnerable people.`,
+    prompt: `Editorial illustration for ${topic}. ${category} theme. Show compassionate people cooperating across differences through specific human gestures. Strict two-color duotone only: brick red #B44334 and deep navy #071B4C. Engraved linework, bold screen-print shapes, subtle paper grain; hopeful and unsentimental. Respect dignity and agency. No other colors, gradients, photorealism, logos, text, watermark, propaganda, stereotypes, staged poverty, or exploitative imagery.`,
     negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, partisan propaganda, religious caricature, stereotype, savior imagery, staged poverty, exploitative imagery, identifiable vulnerable person`
   };
 }
