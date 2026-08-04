@@ -47,11 +47,16 @@ if (!fs.existsSync(IMAGES_DIR)) {
 function generateImagePrompt(title, subject, category) {
   // Keep the prompt below FLUX.2 klein's 800-character API limit so it can
   // reliably serve as a fallback when the primary model rejects a request.
-  const topic = `${title}: ${subject}`.slice(0, 260);
+  const topic = `${title}: ${subject}`
+    .replace(/cross-partisan/gi, 'bridge-building')
+    .replace(/political/gi, 'civic')
+    .replace(/opponents?/gi, 'neighbors with different views')
+    .replace(/partisan/gi, 'community')
+    .slice(0, 260);
 
   return {
-    prompt: `Editorial illustration for ${topic}. ${category} theme. Show compassionate people cooperating across differences through specific human gestures. Strict two-color duotone only: brick red #B44334 and deep navy #071B4C. Engraved linework, bold screen-print shapes, subtle paper grain; hopeful and unsentimental. Respect dignity and agency. No other colors, gradients, photorealism, logos, text, watermark, propaganda, stereotypes, staged poverty, or exploitative imagery.`,
-    negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, partisan propaganda, religious caricature, stereotype, savior imagery, staged poverty, exploitative imagery, identifiable vulnerable person`
+    prompt: `Editorial illustration for ${topic}. ${category} theme. Show compassionate people cooperating across differences through specific human gestures. Strict two-color duotone only: brick red #B44334 and deep navy #071B4C. Engraved linework, bold screen-print shapes, subtle paper grain; hopeful and unsentimental. Respect dignity and agency. No other colors, gradients, photorealism, logos, text, watermark, stereotypes, staged scenes, or exploitative imagery.`,
+    negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, stereotype, staged scene, exploitative imagery`
   };
 }
 
