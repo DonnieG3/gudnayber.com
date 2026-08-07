@@ -8,6 +8,9 @@ source: "https://braverangels.org/what-we-do/"
 tags: ["cross-partisan", "civic-life", "relationship", "common-ground"]
 description: "Focus on real-world practices that help people move from political suspicion to shared civic responsibility without erasing meaningful disagreement."
 estimated_time: "4 min read"
+image: "/assets/images/guides/from-political-opponents-to-civic-partners.jpg"
+image_credit: "Generated with OpenAI"
+image_credit_url: "https://openai.com/"
 ---
 
 **From Political Opponents to Civic Partners**  
