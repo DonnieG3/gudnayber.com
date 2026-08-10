@@ -45,16 +45,22 @@ if (!fs.existsSync(IMAGES_DIR)) {
 
 // Generate article image prompt from topic
 function generateImagePrompt(title, subject, category) {
-  const scenes = {
-    unity: 'Neighbors listening in a civic circle, then working side by side on a community garden',
-    dignity: 'Caring neighbors offering practical help while treating every person as an equal',
-    division: 'Neighbors listening calmly across a table and discovering a shared community goal'
-  };
-  const scene = scenes[category] || 'Neighbors listening and completing a community project together';
+  // Keep generated imagery neutral and landscape-focused. Article titles and
+  // subjects can contain sensitive terms that trigger FLUX content filters.
+  const landscapes = [
+    'layered Appalachian ridgelines at sunrise',
+    'a broad Great Plains prairie beneath an expansive sky',
+    'Southwestern desert mesas with native grasses',
+    'a Pacific coastline with evergreen-covered cliffs',
+    'a quiet river winding through autumn woodland',
+    'Rocky Mountain peaks reflected in an alpine lake'
+  ];
+  const landscapeIndex = [...title].reduce((sum, character) => sum + character.charCodeAt(0), 0) % landscapes.length;
+  const landscape = landscapes[landscapeIndex];
 
   return {
-    prompt: `${scene}. Editorial screen-print illustration using only brick red #B44334 and deep navy #071B4C. Engraved linework, bold shapes, subtle paper grain, warm human gestures, hopeful mood, no text.`,
-    negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, stereotype, staged scene, exploitative imagery`
+    prompt: `A scenic United States landscape featuring ${landscape}. Editorial screen-print illustration using only brick red #B44334 and deep navy #071B4C. Engraved linework, bold shapes, subtle paper grain, peaceful natural light, no people, no buildings, no text.`,
+    negative_prompt: `people, buildings, text, logo, watermark, third color, gradient, photorealism`
   };
 }
 
