@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const { generateImagePrompt } = require('./image-prompt');
 
 // File paths
 const GUIDES_DIR = path.join(__dirname, '..', '_guides');
@@ -61,14 +62,6 @@ function parseFrontMatter(content) {
     subject: subjectMatch ? subjectMatch[1] : null,
     category: categoryMatch ? categoryMatch[1].trim().replace(/^["']|["']$/g, '') : null,
     hasImage: !!imageMatch
-  };
-}
-
-// Generate article image prompt from topic
-function generateImagePrompt(title, subject, category) {
-  return {
-    prompt: `Create a sophisticated editorial illustration for the Gudnayber article "${title}" about ${subject}, in the ${category} category. Visualize the specific human idea, relationship, tension, or real-world cooperation at the heart of this topic—not a generic city scene. Use a strict two-color duotone palette only: Gudnayber brick red #B44334 and deep navy blue #071B4C. Use expressive engraved line work, bold screen-printed shapes, subtle paper grain, and compassionate human gestures. Respect human dignity and agency. Hopeful but unsentimental, editorial rather than promotional. No third color, no black, no white background, no gradients, no photorealism, no logos, no symbols unrelated to the topic, no readable text, no typography, no watermark, no partisan propaganda, no religious caricatures, no stereotypes, no staged poverty, and no exploitative depiction of vulnerable people.`,
-    negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, partisan propaganda, religious caricature, stereotype, savior imagery, staged poverty, exploitative imagery, identifiable vulnerable person`
   };
 }
 
@@ -154,7 +147,7 @@ async function generateAndSaveImage(title, subject, category) {
 
   console.log(`  Generating AI image with NVIDIA FLUX...`);
 
-  const prompt = generateImagePrompt(title, subject, category);
+  const prompt = generateImagePrompt(title);
   let imageBase64 = null;
   let modelUsed = null;
 

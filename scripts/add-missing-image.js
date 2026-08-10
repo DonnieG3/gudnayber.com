@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+const { generateImagePrompt } = require('./image-prompt');
 
 const IMAGES_DIR = path.join(__dirname, '..', 'assets', 'images', 'guides');
 
@@ -41,27 +42,6 @@ const GUIDES_DIR = path.join(__dirname, '..', '_guides');
 // Ensure images directory exists
 if (!fs.existsSync(IMAGES_DIR)) {
   fs.mkdirSync(IMAGES_DIR, { recursive: true });
-}
-
-// Generate article image prompt from topic
-function generateImagePrompt(title, subject, category) {
-  // Keep generated imagery neutral and landscape-focused. Article titles and
-  // subjects can contain sensitive terms that trigger FLUX content filters.
-  const landscapes = [
-    'layered Appalachian ridgelines at sunrise',
-    'a broad Great Plains prairie beneath an expansive sky',
-    'Southwestern desert mesas with native grasses',
-    'a Pacific coastline with evergreen-covered cliffs',
-    'a quiet river winding through autumn woodland',
-    'Rocky Mountain peaks reflected in an alpine lake'
-  ];
-  const landscapeIndex = [...title].reduce((sum, character) => sum + character.charCodeAt(0), 0) % landscapes.length;
-  const landscape = landscapes[landscapeIndex];
-
-  return {
-    prompt: `A scenic United States landscape featuring ${landscape}. Editorial screen-print illustration using only brick red #B44334 and deep navy #071B4C. Engraved linework, bold shapes, subtle paper grain, peaceful natural light, no people, no buildings, no text.`,
-    negative_prompt: `people, buildings, text, logo, watermark, third color, gradient, photorealism`
-  };
 }
 
 // Helper function to try generating image with a specific FLUX model
@@ -136,7 +116,7 @@ async function generateAndSaveImage(title, subject, category) {
 
   console.log(`Generating article image for: ${title}`);
 
-  const prompt = generateImagePrompt(title, subject, category);
+  const prompt = generateImagePrompt(title);
   let imageBase64 = null;
   let modelUsed = null;
 

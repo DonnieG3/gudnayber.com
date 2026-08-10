@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const { generateImagePrompt } = require('./image-prompt');
 
 // NVIDIA API Configuration
 const NVIDIA_API_BASE = 'https://integrate.api.nvidia.com/v1';
@@ -451,14 +452,6 @@ function generateDescription(topic) {
   return `${topic.angle}`;
 }
 
-// Generate article image prompt from topic
-function generateImagePrompt(topic) {
-  return {
-    prompt: `Create a sophisticated editorial illustration for the Gudnayber article "${topic.title}" about ${topic.subject}, in the ${topic.category} category. Visualize the specific human idea, relationship, tension, or real-world cooperation at the heart of this topic—not a generic city scene. Use a strict two-color duotone palette only: Gudnayber brick red #B44334 and deep navy blue #071B4C. Use expressive engraved line work, bold screen-printed shapes, subtle paper grain, and compassionate human gestures. Respect human dignity and agency. Hopeful but unsentimental, editorial rather than promotional. No third color, no black, no white background, no gradients, no photorealism, no logos, no symbols unrelated to the topic, no readable text, no typography, no watermark, no partisan propaganda, no religious caricatures, no stereotypes, no staged poverty, and no exploitative depiction of vulnerable people.`,
-    negative_prompt: `third color, black, white background, grayscale, full color, gradient, photorealistic, stock photo, generic cityscape, decorative pattern, unrelated symbol, logo, readable text, typography, watermark, partisan propaganda, religious caricature, stereotype, savior imagery, staged poverty, exploitative imagery, identifiable vulnerable person`
-  };
-}
-
 // Helper function to try generating image with a specific FLUX model
 async function tryGenerateWithModel(promptData, modelUrl, modelName, steps, maxRetries = 3, timeoutMs = 300000) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
@@ -570,7 +563,7 @@ async function fetchAndSaveImage(topic) {
 
   console.log(`Generating AI image for: ${topic.title}`);
 
-  const prompt = generateImagePrompt(topic);
+  const prompt = generateImagePrompt(topic.title);
   let imageBase64 = null;
   let modelUsed = null;
 
