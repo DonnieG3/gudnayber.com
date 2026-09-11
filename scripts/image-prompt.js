@@ -16,8 +16,8 @@ function generateImagePrompt(title) {
   const activity = cooperativeScenes[sceneIndex];
 
   return {
-    prompt: `A friendly red elephant and a friendly blue donkey ${activity}. Show both animals cooperating as equals with warm, expressive body language. Surround them with an illustrated scene that clearly supports their activity. Use brick red #B44334 for the elephant and deep blue #29499B for the donkey. Render the background only in white and soft gray duotone with restrained purple #6B4FA3 accents. Sophisticated editorial screen-print illustration, engraved linework, bold shapes, subtle paper grain, balanced square composition. No people, text, logos, flags, campaign imagery, or photorealism.`,
-    negative_prompt: 'people, text, letters, logo, watermark, flag, campaign sign, aggression, conflict, photorealism, extra animals, malformed anatomy'
+    prompt: `A friendly red elephant and a friendly blue donkey ${activity}. Show both animals cooperating as equals with warm, expressive body language. Surround them with an illustrated scene that clearly supports their activity. Use brick red #B44334 for the elephant and deep blue #29499B for the donkey. Render the background only in white and soft gray duotone with restrained purple #6B4FA3 accents. Sophisticated editorial screen-print illustration, engraved linework, bold shapes, subtle paper grain, balanced square composition. No people, text, logos, or photorealism.`,
+    negative_prompt: 'people, text, letters, logo, watermark, aggression, conflict, photorealism, extra animals, malformed anatomy'
   };
 }
 
